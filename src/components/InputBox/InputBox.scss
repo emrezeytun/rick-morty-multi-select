@@ -1,0 +1,24 @@
+.input-box {
+  display: flex;
+  align-items: center;
+  background: #e2e8f0;
+  padding: 4px;
+  border-radius: 12px;
+  width: max-content;
+  user-select: none;
+  min-width: max-content;
+  margin-right: 4px;
+
+  p {
+    padding: 4px;
+    margin: 0;
+  }
+  span {
+    color: #fff;
+    background: #94a3b8;
+    padding: 4px;
+    border-radius: 4px;
+    margin: 0px 4px;
+    cursor: pointer;
+  }
+}

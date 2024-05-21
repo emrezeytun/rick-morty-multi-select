@@ -1,0 +1,61 @@
+.selectbox {
+  position: relative;
+  &-multi {
+    width: 400px;
+    border: 1px solid #dadada;
+    padding: 8px;
+    border-radius: 12px;
+    margin-bottom: 4px;
+    display: flex;
+    position: relative;
+    input {
+      width: 100%;
+      padding: 16px;
+      margin-right: 12px;
+      border: none;
+      font-size: 16px;
+      &:focus {
+        outline: none;
+      }
+    }
+    &-inputbox {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      display: flex;
+      flex-wrap: nowrap;
+      max-width: 250px;
+      overflow: scroll;
+
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .arrow-area {
+    cursor: pointer;
+    &-icon {
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      position: absolute;
+      right: 20px;
+      top: 26px;
+
+      &.up {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        margin-top: 4px;
+      }
+      &.down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+    }
+  }
+}
