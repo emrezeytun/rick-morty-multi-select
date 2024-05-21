@@ -9,6 +9,6 @@ const InputBox: React.FC<InputBoxProps> = ({ name, id, onCheckboxChange }) => {
       <span onClick={() => onCheckboxChange(false, id)}> &#x2715; </span>
     </div>
   );
-}
+};
 
 export default InputBox;

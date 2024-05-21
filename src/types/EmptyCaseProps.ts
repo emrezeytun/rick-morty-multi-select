@@ -1,3 +1,3 @@
 export interface EmptyCaseProps {
-  emptyReason: string
+  emptyReason: string;
 }

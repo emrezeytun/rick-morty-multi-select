@@ -25,5 +25,4 @@ describe('SingleItem component', () => {
     expect(nameElement).toBeInTheDocument();
     expect(nameElement).toContainHTML('<strong>Rick Sanchez</strong>');
   });
-
 });

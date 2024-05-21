@@ -1,9 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './SelectboxMulti.scss';
-import InputBox from '../InputBox'; 
+import InputBox from '../InputBox';
 import { SelectboxMultiProps } from '../../types/SelectboxMultiProps';
-
-
 
 const SelectboxMulti: React.FC<SelectboxMultiProps> = ({
   isSelectboxOpen,
@@ -16,11 +14,12 @@ const SelectboxMulti: React.FC<SelectboxMultiProps> = ({
   const [inputPadding, setInputPadding] = useState(20);
 
   useEffect(() => {
-    getInputBoxesWidth()
-  }, [selectedCharacters])
+    getInputBoxesWidth();
+  }, [selectedCharacters]);
 
   const getInputBoxesWidth = () => {
-    inputBoxRef.current && setInputPadding(inputBoxRef?.current?.clientWidth + 12)
+    inputBoxRef.current &&
+      setInputPadding(inputBoxRef?.current?.clientWidth + 12);
   };
 
   return (
@@ -37,7 +36,7 @@ const SelectboxMulti: React.FC<SelectboxMultiProps> = ({
         <div ref={inputBoxRef} className="selectbox-multi-inputbox">
           {selectedCharacters.map((item) => (
             <InputBox
-              key={item.id} 
+              key={item.id}
               name={item.name}
               id={item.id}
               onCheckboxChange={onCheckboxChange}
@@ -56,6 +55,6 @@ const SelectboxMulti: React.FC<SelectboxMultiProps> = ({
       </div>
     </div>
   );
-}
+};
 
 export default SelectboxMulti;

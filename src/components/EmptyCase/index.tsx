@@ -1,7 +1,6 @@
 import React from 'react';
 import './EmptyCase.scss';
-import { EmptyCaseProps } from '../../types/EmptyCaseProps'
-
+import { EmptyCaseProps } from '../../types/EmptyCaseProps';
 
 const Information: React.FC<EmptyCaseProps> = ({ emptyReason }) => {
   return (
@@ -9,6 +8,6 @@ const Information: React.FC<EmptyCaseProps> = ({ emptyReason }) => {
       <p>{emptyReason}</p>
     </div>
   );
-}
+};
 
 export default Information;

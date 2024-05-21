@@ -1,8 +1,8 @@
-import React from 'react'
-import './SingleItem.scss'
-import Avatar from '../Avatar'
-import Information from '../Information'
-import { SingleItemProps } from '../../types/SingleItemProps'
+import React from 'react';
+import './SingleItem.scss';
+import Avatar from '../Avatar';
+import Information from '../Information';
+import { SingleItemProps } from '../../types/SingleItemProps';
 
 const SingleItem: React.FC<SingleItemProps> = ({
   avatarImageUrl,
@@ -23,6 +23,6 @@ const SingleItem: React.FC<SingleItemProps> = ({
       <Information name={name} variant={variant} />
     </div>
   );
-}
+};
 
 export default SingleItem;

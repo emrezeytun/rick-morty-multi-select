@@ -2,7 +2,6 @@ import React from 'react';
 import './Information.scss';
 import { InformationProps } from '../../types/InformationProps';
 
-
 const Information: React.FC<InformationProps> = ({ name, variant }) => {
   return (
     <div className="information">
@@ -15,6 +14,6 @@ const Information: React.FC<InformationProps> = ({ name, variant }) => {
       <p className="information-variant"> {variant} Episodes </p>
     </div>
   );
-}
+};
 
 export default Information;

@@ -8,6 +8,6 @@ const Avatar: React.FC<AvatarProps> = ({ avatarImageUrl }) => {
       <img src={avatarImageUrl} alt="Avatar" />
     </div>
   );
-}
+};
 
 export default Avatar;

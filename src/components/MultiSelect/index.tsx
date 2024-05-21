@@ -4,7 +4,7 @@ import { SingleItem, SelectboxMulti, EmptyCase, Loading } from '..';
 import { getCharacterByName } from '../../services';
 import { debouncer, highlightTerm } from '../../helper';
 import { emptyReasons } from '../../constants';
-import { Character } from '../../types/Character'
+import { Character } from '../../types/Character';
 
 const MultiSelect: React.FC = () => {
   const [isSelectboxOpen, setIsSelectboxOpen] = useState<boolean>(false);
@@ -28,7 +28,7 @@ const MultiSelect: React.FC = () => {
         setCharacters([]);
       }
     } catch (error) {
-      console.error("error", error);
+      console.error('error', error);
       setCharacters([]);
     } finally {
       setIsLoading(false);
@@ -84,7 +84,9 @@ const MultiSelect: React.FC = () => {
                   />
                 );
               })
-            ) : isLoading ? <Loading /> : searchTerm.length ? (
+            ) : isLoading ? (
+              <Loading />
+            ) : searchTerm.length ? (
               <EmptyCase emptyReason={emptyReasons.noCharacter} />
             ) : (
               <EmptyCase emptyReason={emptyReasons.noSearchTerm} />
@@ -94,6 +96,6 @@ const MultiSelect: React.FC = () => {
       ) : null}
     </div>
   );
-}
+};
 
 export default MultiSelect;
