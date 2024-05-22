@@ -1,6 +1,6 @@
 import React from 'react';
 import './EmptyCase.scss';
-import { EmptyCaseProps } from '../../types/EmptyCaseProps';
+import { EmptyCaseProps } from './types/EmptyCaseProps';
 
 const Information: React.FC<EmptyCaseProps> = ({ emptyReason }) => {
   return (

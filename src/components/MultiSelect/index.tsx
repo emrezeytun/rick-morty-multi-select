@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './MultiSelect.scss';
 import { SingleItem, SelectboxMulti, EmptyCase, Loading } from '..';
 import { getCharacterByName } from '../../services';
 import { debouncer, highlightTerm } from '../../helper';
 import { emptyReasons } from '../../constants';
-import { Character } from '../../types/Character';
+import { Character } from '../../globalTypes/Character';
 import { useClickOutside } from '../../customHooks';
 
 const MultiSelect: React.FC = () => {
@@ -15,10 +15,6 @@ const MultiSelect: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const multiSelectRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    setIsSelectboxOpen(searchTerm.length > 0);
-  }, [searchTerm]);
 
   const getCharacter = async (searchText: string = searchTerm) => {
     setIsLoading(true);

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SelectboxMulti from './';
-import { SelectboxMultiProps } from '../../types/SelectboxMultiProps';
+import { SelectboxMultiProps } from './types/SelectboxMultiProps';
 
 const defaultProps: SelectboxMultiProps = {
   isSelectboxOpen: false,
@@ -15,7 +15,7 @@ const defaultProps: SelectboxMultiProps = {
 describe('SelectboxMulti component', () => {
   it('renders the input with correct placeholder', () => {
     render(<SelectboxMulti {...defaultProps} />);
-    const inputElement = screen.getByPlaceholderText('Karakter arayın...');
+    const inputElement = screen.getByPlaceholderText('Karakter ara...');
     expect(inputElement).toBeInTheDocument();
   });
 
@@ -25,7 +25,7 @@ describe('SelectboxMulti component', () => {
       <SelectboxMulti {...defaultProps} onChangeSearch={onChangeSearch} />
     );
 
-    const inputElement = screen.getByPlaceholderText('Karakter arayın...');
+    const inputElement = screen.getByPlaceholderText('Karakter ara...');
     fireEvent.change(inputElement, { target: { value: 'Rick' } });
 
     expect(onChangeSearch).toHaveBeenCalledTimes(1);

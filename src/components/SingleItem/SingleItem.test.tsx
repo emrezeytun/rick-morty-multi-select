@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import SingleItem from './';
-import { SingleItemProps } from '../../types/SingleItemProps';
+import { SingleItemProps } from './types/SingleItemProps';
 
 const defaultProps: SingleItemProps = {
   avatarImageUrl: 'https://emrezeytun.com.tr/img/slide1.jpg',

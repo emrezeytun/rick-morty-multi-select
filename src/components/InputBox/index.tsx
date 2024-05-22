@@ -1,6 +1,6 @@
 import React from 'react';
 import './InputBox.scss';
-import { InputBoxProps } from '../../types/InputBoxProps';
+import { InputBoxProps } from './types/InputBoxProps';
 
 const InputBox: React.FC<InputBoxProps> = ({ name, id, onCheckboxChange }) => {
   return (

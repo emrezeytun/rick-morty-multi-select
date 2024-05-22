@@ -1,4 +1,4 @@
-import { Character } from './Character';
+import { Character } from '../../../globalTypes/Character';
 
 export interface SelectboxMultiProps {
   isSelectboxOpen: boolean;

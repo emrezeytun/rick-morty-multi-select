@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './SelectboxMulti.scss';
 import InputBox from '../InputBox';
-import { SelectboxMultiProps } from '../../types/SelectboxMultiProps';
+import { SelectboxMultiProps } from './types/SelectboxMultiProps';
 
 const SelectboxMulti: React.FC<SelectboxMultiProps> = ({
   isSelectboxOpen,
@@ -36,7 +36,7 @@ const SelectboxMulti: React.FC<SelectboxMultiProps> = ({
       <div className="selectbox-multi">
         <input
           onChange={(e) => onChangeSearch(e.target.value)}
-          placeholder={!selectedCharacters?.length ? 'Karakter arayın...' : ''}
+          placeholder={'Karakter ara...'}
           type="text"
           ref={inputRef}
           style={{

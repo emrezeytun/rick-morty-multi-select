@@ -1,8 +1,4 @@
-const baseUrl = 'https://rickandmortyapi.com/api';
-
-const emptyReasons = {
-  noCharacter: 'Aradığınız kriterlere uygun karakter bulunamadı.',
-  noSearchTerm: 'Lütfen karakter arayınız.',
-};
+import { baseUrl } from './globalConstants';
+import { emptyReasons } from './errorMessages';
 
 export { baseUrl, emptyReasons };
