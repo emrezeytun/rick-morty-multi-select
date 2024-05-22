@@ -59,7 +59,6 @@ const MultiSelect: React.FC = () => {
 
   const onClickOutside = () => {
     if (!isSelectboxOpen) return;
-    console.log('çalıştı burası');
     setIsSelectboxOpen(false);
   };
 
