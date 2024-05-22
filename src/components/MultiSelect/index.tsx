@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './MultiSelect.scss';
 import { SingleItem, SelectboxMulti, EmptyCase, Loading } from '..';
 import { getCharacterByName } from '../../services';
 import { debouncer, highlightTerm } from '../../helper';
 import { emptyReasons } from '../../constants';
 import { Character } from '../../types/Character';
+import { useClickOutside } from '../../customHooks';
 
 const MultiSelect: React.FC = () => {
   const [isSelectboxOpen, setIsSelectboxOpen] = useState<boolean>(false);
   const [characters, setCharacters] = useState<Character[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedCharacters, setSelectedCharacters] = useState<Character[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const multiSelectRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setIsSelectboxOpen(searchTerm.length > 0);
@@ -56,44 +59,56 @@ const MultiSelect: React.FC = () => {
     }
   };
 
+  const onClickOutside = () => {
+    if (!isSelectboxOpen) return;
+    console.log('çalıştı burası');
+    setIsSelectboxOpen(false);
+  };
+
+  useClickOutside(multiSelectRef, onClickOutside);
+
   return (
     <div className="multi-select">
-      <SelectboxMulti
-        onChangeSearch={onChangeSearch}
-        isSelectboxOpen={isSelectboxOpen}
-        setIsSelectboxOpen={setIsSelectboxOpen}
-        selectedCharacters={selectedCharacters}
-        onCheckboxChange={onCheckboxChange}
-      />
+      <div ref={multiSelectRef} className="multi-select-main">
+        <SelectboxMulti
+          onChangeSearch={onChangeSearch}
+          isSelectboxOpen={isSelectboxOpen}
+          setIsSelectboxOpen={setIsSelectboxOpen}
+          selectedCharacters={selectedCharacters}
+          onCheckboxChange={onCheckboxChange}
+        />
 
-      {isSelectboxOpen ? (
-        <div className="multi-select-container">
-          <div className="multi-select-container-box">
-            {characters.length ? (
-              characters.map((item) => {
-                const highlightedName = highlightTerm(item.name, searchTerm);
-                return (
-                  <SingleItem
-                    key={item.id}
-                    id={item.id}
-                    avatarImageUrl={item.image}
-                    name={highlightedName}
-                    variant={item.episode.length}
-                    isChecked={selectedCharacters.some((i) => i.id === item.id)}
-                    onCheckboxChange={onCheckboxChange}
-                  />
-                );
-              })
-            ) : isLoading ? (
-              <Loading />
-            ) : searchTerm.length ? (
-              <EmptyCase emptyReason={emptyReasons.noCharacter} />
-            ) : (
-              <EmptyCase emptyReason={emptyReasons.noSearchTerm} />
-            )}
+        {isSelectboxOpen ? (
+          <div className="multi-select-container">
+            <div className="multi-select-container-box">
+              {characters.length ? (
+                characters.map((item) => {
+                  const highlightedName = highlightTerm(item.name, searchTerm);
+                  return (
+                    <SingleItem
+                      key={item.id}
+                      id={item.id}
+                      avatarImageUrl={item.image}
+                      name={highlightedName}
+                      variant={item.episode.length}
+                      isChecked={selectedCharacters.some(
+                        (i) => i.id === item.id
+                      )}
+                      onCheckboxChange={onCheckboxChange}
+                    />
+                  );
+                })
+              ) : isLoading ? (
+                <Loading />
+              ) : searchTerm.length ? (
+                <EmptyCase emptyReason={emptyReasons.noCharacter} />
+              ) : (
+                <EmptyCase emptyReason={emptyReasons.noSearchTerm} />
+              )}
+            </div>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </div>
   );
 };

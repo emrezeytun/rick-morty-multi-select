@@ -11,7 +11,16 @@ const SelectboxMulti: React.FC<SelectboxMultiProps> = ({
   onCheckboxChange,
 }) => {
   const inputBoxRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [inputPadding, setInputPadding] = useState(20);
+
+  const handleFocus = () => {
+    setIsSelectboxOpen(true);
+  };
+
+  if (inputRef.current) {
+    inputRef.current.addEventListener('focus', handleFocus);
+  }
 
   useEffect(() => {
     getInputBoxesWidth();
@@ -29,11 +38,18 @@ const SelectboxMulti: React.FC<SelectboxMultiProps> = ({
           onChange={(e) => onChangeSearch(e.target.value)}
           placeholder={!selectedCharacters?.length ? 'Karakter arayın...' : ''}
           type="text"
+          ref={inputRef}
           style={{
             paddingLeft: `${inputPadding}px`,
           }}
         />
-        <div ref={inputBoxRef} className="selectbox-multi-inputbox">
+        <div
+          ref={inputBoxRef}
+          className="selectbox-multi-inputbox"
+          style={{
+            maxWidth: `${isSelectboxOpen}px`,
+          }}
+        >
           {selectedCharacters.map((item) => (
             <InputBox
               key={item.id}
