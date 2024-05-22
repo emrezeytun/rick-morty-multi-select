@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import './MultiSelect.scss';
 import { SingleItem, SelectboxMulti, EmptyCase, Loading } from '..';
-import { getCharacterByName } from '../../services';
-import { debouncer, highlightTerm } from '../../helper';
-import { emptyReasons } from '../../constants';
-import { Character } from '../../globalTypes/Character';
-import { useClickOutside } from '../../customHooks';
+import { getCharacterByName } from '@services';
+import { debouncer, highlightTerm } from '@helper';
+import { emptyReasons } from '@constants';
+import { Character } from '@globalTypes/Character';
+import { useClickOutside } from '@customHooks';
 
 const MultiSelect: React.FC = () => {
   const [isSelectboxOpen, setIsSelectboxOpen] = useState<boolean>(false);

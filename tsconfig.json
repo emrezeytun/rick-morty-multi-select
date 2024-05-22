@@ -13,8 +13,20 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "paths": {
+      "@components": ["components/"],
+      "@assets/*": ["assets/*"],
+      "@services": ["services/"],
+      "@helper": ["helper/"],
+      "@constants": ["constants/"],
+      "@globalTypes/*": ["globalTypes/*"],
+      "@customHooks": ["customHooks/"]
+    }
   },
   "include": ["src"]
 }

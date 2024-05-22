@@ -1,4 +1,4 @@
-import { baseUrl } from '../constants';
+import { baseUrl } from '@constants';
 import { makeGetRequest } from '../helper/httpHelper';
 
 async function getCharacterByName(name) {

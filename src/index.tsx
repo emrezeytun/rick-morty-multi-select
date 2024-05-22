@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { MultiSelect } from './components';
+import { MultiSelect } from '@components';
 import reportWebVitals from './reportWebVitals';
 
 const rootElement = document.getElementById('root');
