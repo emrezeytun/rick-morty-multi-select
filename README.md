@@ -6,7 +6,7 @@
 
 Below is a short preview of the project:
 
-![Project Preview](https://emrezeytun.com.tr/rick-morty-multi-select/preview.gif)
+<img src="https://github.com/emrezeytun/rick-morty-multi-select/blob/main/preview.gif">
 
 ---
 
