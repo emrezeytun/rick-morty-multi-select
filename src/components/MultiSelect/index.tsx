@@ -8,7 +8,6 @@ import { Character } from '@globalTypes/Character';
 import { useClickOutside } from '@customHooks';
 import { AxiosResponse } from 'axios';
 
-
 const MultiSelect: React.FC = () => {
   const [isSelectboxOpen, setIsSelectboxOpen] = useState<boolean>(false);
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -22,7 +21,8 @@ const MultiSelect: React.FC = () => {
     setIsLoading(true);
     try {
       const response = await getCharacterByName(searchText);
-      const { status = null, data: { results = [] } = {} } = response as AxiosResponse;
+      const { status = null, data: { results = [] } = {} } =
+        response as AxiosResponse;
       if (status === 200) {
         setCharacters(results);
       } else {
@@ -36,11 +36,15 @@ const MultiSelect: React.FC = () => {
     }
   };
 
-  const onChangeSearch = debouncer((searchText: string) => {
-    setSearchTerm(searchText);
-    getCharacter(searchText);
-  }, 300, false);
-  
+  const onChangeSearch = debouncer(
+    (searchText: string) => {
+      setSearchTerm(searchText);
+      getCharacter(searchText);
+    },
+    300,
+    false
+  );
+
   const onCheckboxChange = (isChecked: boolean, id: number) => {
     if (isChecked) {
       const newCharacter = characters.find((i) => i.id === id);

@@ -15,7 +15,7 @@ const SingleItem: React.FC<SingleItemProps> = ({
   return (
     <div
       onClick={() => onCheckboxChange(!isChecked, id)}
-      className="single-item"
+      className={`single-item ${isChecked ? 'checked' : ''}`}
     >
       <input type="checkbox" checked={isChecked} />
       <Avatar avatarImageUrl={avatarImageUrl} />

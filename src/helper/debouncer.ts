@@ -1,4 +1,8 @@
-function debouncer<T extends (...args: any[]) => any>(func: T, wait: number, immediate: boolean): (...args: Parameters<T>) => void {
+function debouncer<T extends (...args: any[]) => any>(
+  func: T,
+  wait: number,
+  immediate: boolean
+): (...args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout | null;
 
   return function executedFunction(this: any, ...args: Parameters<T>) {
